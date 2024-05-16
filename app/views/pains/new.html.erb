@@ -1,1 +1,42 @@
-<h1>痛み登録ページ</h1>
+<div class="pain-contents">
+
+  <%# 痛み入力フォーム %>
+  <div class="add-pain-main">
+    <h2 class="add-pain-title">痛みの記録を入力</h2>
+
+    <%# ペインスケール画像 %>
+    <div class="pain-scale-img">
+    <%= image_tag "pain_scale.jpg", class:"pain-scale", size: "350x100" %>
+    </div>
+    <%# ペインスケール画像 %>
+
+    <%= form_with model: @pain, local: true do |f| %>
+      <div class="pain-date-text">
+        痛みがあった日時
+      </div>
+      <%= f.datetime_field :time, class:"time", placeholder:"時刻" %>
+
+      <div class="pain-level-text">
+        痛みのつよさ
+      </div>
+      <%= f.collection_select(:pain_scale_id, Scale.all, :id, :name, {}, {class:"scale-select"}) %>
+
+      <div class="pain-treatment-text">
+        痛みに対する処置
+      </div>
+      <%= f.text_area :treatment, class:"treatment", placeholder:"痛みに対して行った処置があれば記載してください", style: "width: 350px;" %>
+
+      <div class="pain-evaluation-text">
+        痛みに対する処置の効果
+      </div>
+      <%= f.text_area :evaluation, class:"evaluation", placeholder:"処置を行った後の効果があれば記載してください", style: "width: 350px;" %>
+
+      <div class="pain-memo-text">
+        その他痛みに関してメモ
+      </div>
+      <%= f.text_area :memo, class:"memo", placeholder:"気になったことがあれば記載してください", style: "width: 350px;" %>
+      <%= f.submit "痛みを記録" ,class:"btn" %>
+    <% end %>
+  </div>
+  <%# 痛み入力フォーム %>
+</div>
