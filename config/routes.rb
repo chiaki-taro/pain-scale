@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pains#index'
+  root 'home#top'
   resources :pains, only: [:index, :new, :create]
 end
