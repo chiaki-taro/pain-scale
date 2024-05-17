@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :pains
+  has_many :patients
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
