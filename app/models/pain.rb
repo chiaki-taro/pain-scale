@@ -7,6 +7,7 @@ class Pain < ApplicationRecord
 
   with_options presence: true do
     validates :pain_scale_id
+    validates :pain_part
     validates :time
   end
 end
