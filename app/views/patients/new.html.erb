@@ -1,0 +1,23 @@
+<%= render "shared/header" %>
+
+<div class="patient-contents">
+  <div class="add-patient-main">
+    <h2 class="add-patient-title">患者さん登録</h2>
+
+    <%# ページ画像 %>
+    <div class="pain-scale-img">
+    <%= image_tag "family_big.png", class:"pain-scale", size: "350x200" %>
+    </div>
+    <%# ページ画像 %>
+
+    <%# 患者さん登録フォーム %>
+    <%= form_with model: @patient, local: true do |f| %>
+      <div class="patient_name-text">
+        患者さんのお名前
+      </div>
+      <%= f.text_area :patient_name, class:"patient_name", placeholder:"お名前を入力してください", style: "width: 350px;" %>
+      <%= f.submit "患者さん登録" ,class:"btn" %>
+    <% end %>
+    <%# 患者さん登録フォーム %>
+  </div>
+</div>

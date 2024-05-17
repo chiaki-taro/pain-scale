@@ -1,0 +1,13 @@
+<%= render "shared/header" %>
+<% @patients.each do |patient| %>
+  <li class='list'>
+    <%= link_to patient_path(patient) do %>
+    <div class='patient-info'>
+      <h3 class='patient-name'>
+        <%= patient.patient_name %>
+      </h3>
+    </div>
+    <% end %>
+  </li>
+<% end %>
+<%= link_to "患者さん登録", new_patient_path, class: "button" %>
