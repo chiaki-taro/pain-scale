@@ -16,6 +16,11 @@
       </div>
       <%= f.datetime_field :time, class:"time", placeholder:"時刻" %>
 
+      <div class="pain-treatment-text">
+        痛みの部位
+      </div>
+      <%= f.text_area :pain_part, class:"pain_partt", placeholder:"痛みのある場所を記載してください", style: "width: 350px;" %>
+
       <div class="pain-level-text">
         痛みのつよさ
       </div>

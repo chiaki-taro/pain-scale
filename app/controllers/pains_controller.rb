@@ -19,7 +19,7 @@ class PainsController < ApplicationController
   private
 
   def pain_params
-    params.require(:pain).permit(:time, :pain_scale_id, :treatment, :evaluation, :memo).merge(user_id: current_user.id)
+    params.require(:pain).permit(:time, :pain_part, :pain_scale_id, :treatment, :evaluation, :memo)
   end
 
 end
