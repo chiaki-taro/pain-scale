@@ -3,7 +3,6 @@ class PatientsController < ApplicationController
   before_action :check_exist_patients, only: :index
 
   def index
-    @patients = current_user.patients.order(created_at: :desc)
   end
 
   def new
@@ -38,7 +37,8 @@ class PatientsController < ApplicationController
   end
 
   def check_exist_patients
-    redirect_to new_patient_path if @patients == nil
+    @patients = current_user.patients.order(created_at: :desc)
+    redirect_to new_patient_path if @patients.empty?
   end
 
 end
