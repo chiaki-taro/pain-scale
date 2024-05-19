@@ -20,7 +20,7 @@ class PatientsController < ApplicationController
   end
 
   def show
-    @pains = @patient.pains.order(created_at: :desc)
+    @pains = @patient.pains.order(time: :desc)
   end
 
   def edit

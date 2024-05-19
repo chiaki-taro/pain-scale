@@ -1,44 +1,47 @@
 <%= render "shared/header" %>
 
 <%# 痛み記録一覧 %>
-  <div class='pain-contents'>
-    <h2 class='title'>
-      <%= @patient.patient_name %>さんの痛み記録
-    </h2>
+<div class='pain-contents'>
+  <h2 class='title'>
+    <%= @patient.patient_name %>さんの痛み記録
+  </h2>
 
-    <ul class='pain-lists'>
+  <%= link_to "#{@patient.patient_name}さんの痛みを登録", new_patient_pain_path(@patient), class: "add-pain-button" %>
 
-      <% @pains.each do |pain| %>
+  <ul class='pain-lists'>
+    <% @pains.each do |pain| %>
       <li class='pain-list'>
-        <%= link_to '#' do %>
         <div class='pain-info'>
           <div class='pain-header'>
-            <h3 class='pain-part'><%= pain.pain_part %></h3>
             <div class='pain-time'><%= pain.time.strftime("%Y-%m-%d %H:%M") %></div>
+            <h3 class='pain-part'><%= pain.pain_part %></h3>
           </div>
           <div class='pain-body'>
-            <div class='pain-level'><%= pain.pain_scale_id %></div>
+            <div class='pain-level'>痛みの強さ：<%= pain.pain_scale_id %></div>
+          </div>
+          <div class='pain-footer'>
             <div class='pain-treatment'><%= pain.treatment %></div>
             <div class='pain-evaluation'><%= pain.evaluation %></div>
             <div class='pain-memo'><%= pain.memo %></div>
           </div>
+          <% if current_user == @patient.user %>
+            <div class='pain-actions'>
+              <%= link_to '編集', edit_patient_pain_path(@patient, pain), class: 'btn edit-btn' %>
+              <%= link_to '削除', patient_pain_path(@patient, pain), data: {turbo_method: :delete}, class: 'btn delete-btn' %>
+            </div>
+          <% end %>
         </div>
-        <% end %>
       </li>
-      <% end %>
+    <% end %>
+  </ul>
 
-    </ul>
-    <%# 痛みがない場合のダミー表示 %>
-    <% if @pains.blank? then %>
+  <%# 痛みがない場合のダミー表示 %>
+  <% if @pains.blank? %>
     <div class='non-pain-info'>
       <h3 class='add-pain'>
-        下のボタンから痛みを登録してね！
+        上のボタンから痛みを登録してね！
       </h3>
     </div>
-    <% end %>
-    <%# 痛みがない場合のダミー表示 %>
-  </div>
-  <%# /痛み記録一覧 %>
+  <% end %>
+  <%# 痛みがない場合のダミー表示 %>
 </div>
-
-<%= link_to "#{@patient.patient_name}さんの痛みを登録", new_patient_pain_path(@patient), class: "add-pain-button" %>

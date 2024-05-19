@@ -18,53 +18,53 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* リスト全体 */
 .pain-lists {
-  list-style: none; /* リストのデフォルトのマーカーを削除 */
+  list-style-type: none; /* リストの点を消す */
   padding: 0;
-  margin: 0;
 }
 
+/* 各リスト項目 */
 .pain-list {
-  margin-bottom: 10px; /* 各リストアイテムの下の余白 */
-  a {
-    text-decoration: none !important; /* リンクの下線を削除 */
-  }
-}
-
-.pain-info {
-  display: block; /* ブロック要素として扱う */
+  margin-bottom: 20px; /* リスト項目間の余白 */
   border: 1px solid #ccc; /* 枠線 */
-  border-radius: 5px; /* 角を丸くする */
+  border-radius: 5px; /* 角丸 */
   padding: 10px;
-  background-color: #f9f9f9; /* 背景色 */
-  text-decoration: none; /* リンクの下線を削除 */
-  transition: background-color 0.3s, box-shadow 0.3s; /* マウスオーバー時のアニメーション */
 }
 
-.pain-info:hover {
-  background-color: #e5e5e5; /* マウスオーバー時の背景色 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* マウスオーバー時の影 */
-}
-
+/* ヘッダー部分 */
 .pain-header {
-  display: flex;
-  justify-content: space-between; /* 各要素を左右に分ける */
-  align-items: center; /* 縦方向中央揃え */
-  margin-bottom: 10px; /* 下の余白 */
+  margin-bottom: 10px; /* ヘッダー部分とボディ部分の間の余白 */
 }
 
-.pain-body > div {
-  margin-bottom: 5px; /* 各項目の下の余白 */
+/* ボディ部分 */
+.pain-body {
+  margin-bottom: 10px; /* ボディ部分とフッター部分の間の余白 */
 }
 
-.pain-part, .pain-time {
-  flex: 1; /* 各要素の幅を均等にする */
+/* レベル表示 */
+.pain-level {
+  font-size: 18px; /* フォントサイズを大きくする */
+  font-weight: bold; /* フォントの太さを太くする */
 }
 
-.pain-part {
-  font-weight: bold; /* 強調表示 */
+/* ボタン部分 */
+.pain-actions {
+  margin-top: 10px; /* ボタン部分と他の要素の間の余白 */
 }
 
-.pain-time {
-  text-align: right; /* 右揃え */
+/* 編集と削除ボタン */
+.btn {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #007bff; /* ボタンの背景色 */
+  color: #fff; /* ボタンのテキスト色 */
+  text-decoration: none;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3; /* ホバー時の背景色 */
 }
