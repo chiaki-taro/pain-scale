@@ -1,4 +1,7 @@
 <%= render "shared/header" %>
+<h1>
+<%= current_user.user_name%>さんの患者一覧
+</h1>
 <% @patients.each do |patient| %>
   <ul class="patients-list">
     <li class='list'>

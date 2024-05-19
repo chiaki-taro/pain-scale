@@ -27,10 +27,18 @@ class PatientsController < ApplicationController
   end
 
   def update
+    if @patient.update(patient_params)
+      redirect_to patient_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @patient.destroy
+    redirect_to patients_path
   end
+
 
   private
 

@@ -3,9 +3,16 @@
 <%# 痛み記録一覧 %>
 <div class='pain-contents'>
   <h2 class='title'>
-    <%= @patient.patient_name %>さんの痛み記録
+    <%= @patient.patient_name %>さんの記録
   </h2>
 
+  <% if current_user.id == @patient.user_id %>
+    <div class='patient-actions'>
+      <%= link_to '患者編集', edit_patient_path(@patient), class: 'btn edit-btn' %>
+      <%= link_to '患者削除', patient_path(@patient), data: {turbo_method: :delete}, class: 'btn delete-btn' %>
+    </div>
+  <% end %>
+ 
   <%= link_to "#{@patient.patient_name}さんの痛みを登録", new_patient_pain_path(@patient), class: "add-pain-button" %>
 
   <ul class='pain-lists'>
