@@ -38,7 +38,7 @@ class PatientsController < ApplicationController
   end
 
   def check_exist_patients
-    @patients = current_user.patients.order(created_at: :desc)
+    @patients = current_user.patients.order(patient_name: :asc)
     redirect_to new_patient_path if @patients.empty?
   end
 
