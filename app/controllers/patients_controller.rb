@@ -1,6 +1,7 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_exist_patients, only: :index
+  before_action :set_patient, only: :show
 
   def index
   end
@@ -39,6 +40,10 @@ class PatientsController < ApplicationController
   def check_exist_patients
     @patients = current_user.patients.order(created_at: :desc)
     redirect_to new_patient_path if @patients.empty?
+  end
+
+  def set_patient
+    @patient = Patient.find(params[:id])
   end
 
 end

@@ -1,8 +1,11 @@
+<%= render "shared/header" %>
 <div class="pain-contents">
 
   <%# 痛み入力フォーム %>
   <div class="add-pain-main">
-    <h2 class="add-pain-title">痛みの記録を入力</h2>
+    <h2 class="add-pain-title">
+      <%=@patient.patient_name%>さんの痛みの記録を入力
+    </h2>
 
     <%# ペインスケール画像 %>
     <div class="pain-scale-img">
@@ -10,7 +13,7 @@
     </div>
     <%# ペインスケール画像 %>
 
-    <%= form_with model: @pain, local: true do |f| %>
+    <%= form_with model: [@patient, @pain], local: true do |f| %>
       <div class="pain-date-text">
         痛みがあった日時
       </div>

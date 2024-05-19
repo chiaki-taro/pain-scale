@@ -1,2 +1,5 @@
-<h1>患者詳細ページ</h1>
-<div>痛み登録ページに飛ぶボタン</div>
+<%= render "shared/header" %>
+<h2 class="name">
+  <%= @patient.patient_name %>さんの痛み記録
+</h2>
+<%= link_to "#{@patient.patient_name}さんの痛みを登録", new_patient_pain_path(@patient), class: "add-pain-button" %>
