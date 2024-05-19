@@ -1,7 +1,7 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_exist_patients, only: :index
-  before_action :set_patient, only: :show
+  before_action :set_patient, only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -20,6 +20,7 @@ class PatientsController < ApplicationController
   end
 
   def show
+    @pains = @patient.pains.order(created_at: :desc)
   end
 
   def edit
@@ -43,7 +44,7 @@ class PatientsController < ApplicationController
   end
 
   def set_patient
-    @patient = Patient.find(params[:id])
+    @patient = current_user.patients.find(params[:id])
   end
 
 end

@@ -17,3 +17,54 @@
 .add-pain-button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.pain-lists {
+  list-style: none; /* リストのデフォルトのマーカーを削除 */
+  padding: 0;
+  margin: 0;
+}
+
+.pain-list {
+  margin-bottom: 10px; /* 各リストアイテムの下の余白 */
+  a {
+    text-decoration: none !important; /* リンクの下線を削除 */
+  }
+}
+
+.pain-info {
+  display: block; /* ブロック要素として扱う */
+  border: 1px solid #ccc; /* 枠線 */
+  border-radius: 5px; /* 角を丸くする */
+  padding: 10px;
+  background-color: #f9f9f9; /* 背景色 */
+  text-decoration: none; /* リンクの下線を削除 */
+  transition: background-color 0.3s, box-shadow 0.3s; /* マウスオーバー時のアニメーション */
+}
+
+.pain-info:hover {
+  background-color: #e5e5e5; /* マウスオーバー時の背景色 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* マウスオーバー時の影 */
+}
+
+.pain-header {
+  display: flex;
+  justify-content: space-between; /* 各要素を左右に分ける */
+  align-items: center; /* 縦方向中央揃え */
+  margin-bottom: 10px; /* 下の余白 */
+}
+
+.pain-body > div {
+  margin-bottom: 5px; /* 各項目の下の余白 */
+}
+
+.pain-part, .pain-time {
+  flex: 1; /* 各要素の幅を均等にする */
+}
+
+.pain-part {
+  font-weight: bold; /* 強調表示 */
+}
+
+.pain-time {
+  text-align: right; /* 右揃え */
+}
